@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <xiaozhima msg="小姐姐，我是小芝麻，我很可爱的，你喜欢我吗"/>
+    <img height="50%" width="50%" alt="小芝麻" src="../assets/xiaozhima20191025112050.jpg">
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import xiaozhima from '@/components/xiaozhima.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    xiaozhima
   }
 }
 </script>
