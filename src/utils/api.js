@@ -1,76 +1,5 @@
 import axios from 'axios'
-//这里使用 element-ui 的消息UI组件
-import { Notification } from "element-ui";
-let base = '';
-
-export const postRequest = (url, params) => {
-  return axios({
-    method: 'post',
-    url: `${base}${url}`,
-    data: params,
-    transformRequest: [function (data) {
-      // Do whatever you want to transform the data
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  });
-}
-export const uploadFileRequest = (url, params) => {
-  return axios({
-    method: 'post',
-    url: `${base}${url}`,
-    data: params,
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  });
-}
-export const putRequest = (url, params) => {
-  return axios({
-    method: 'put',
-    url: `${base}${url}`,
-    data: params,
-    transformRequest: [function (data) {
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  });
-}
-export const deleteRequest = (url) => {
-  return axios({
-    method: 'delete',
-    url: `${base}${url}`
-  });
-}
-export const getRequest = (url,params) => {
-  return axios({
-    method: 'get',
-    data:params,
-    transformRequest: [function (data) {
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    url: `${base}${url}`
-  });
-}
+import {Message} from "element-ui";
 
 //注册全局 Axios 拦截器
 export function registerInterceptor(options) {
@@ -101,10 +30,9 @@ export function registerInterceptor(options) {
           default:
             break;
         }
-
-        Notification.error({
-          title: "错误",
+        Message.error({
           message: message || err.message
+          // type: 'error'
         });
 
         return Promise.reject(err);

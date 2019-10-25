@@ -6,13 +6,18 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import xiaozhima from '@/components/xiaozhima.vue'
+  // @ is an alias to /src
+  import xiaozhima from '@/components/xiaozhima.vue'
 
-export default {
-  name: 'home',
-  components: {
-    xiaozhima
+  export default {
+    name: 'home',
+    components: {
+      xiaozhima
+    }
   }
-}
 </script>
+<style>
+  .home {
+    text-align: center;
+  }
+</style>
